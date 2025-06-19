@@ -8,6 +8,7 @@
   background-color: white;
   pointer-events: none;
   mix-blend-mode: difference;
+
   transform: translate(-50%, -50%);
   transition: width 0.3s, height 0.3s;
   z-index: 1000;
@@ -78,7 +79,7 @@ p {
 }
 
 .stroked-text {
-  -webkit-text-stroke: 0.4px #aab2d1;
+  -webkit-text-stroke: 2px #aab2d1;
 }
 
 .fancy-font {
@@ -108,4 +109,47 @@ p {
 .underline-hover:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+/* --- Theme Styles --- */
+
+body.light {
+  background-color: #ffffff;
+}
+
+.light .main-container,
+.light header,
+.light .menu-overlay {
+  color: #1a1a1a;
+}
+
+.light .stroked-text {
+  -webkit-text-stroke-color: #aab2d1;
+
+}
+
+.light .text-#aab2d1 {
+  color: #1a1a1a !important;
+}
+
+.light .cursor {
+  background-color: #1a1a1a;
+}
+
+.light .hamburger-btn span {
+  background-color: #1a1a1a;
+}
+
+.light .hamburger-btn::before,
+.light .hamburger-btn::after {
+  background-color: #1a1a1a;
+}
+
+.light .menu-overlay {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.dynamic-text {
+  color: white;
+
 }

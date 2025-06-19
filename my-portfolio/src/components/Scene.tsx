@@ -1,5 +1,5 @@
 
-import { Canvas, useFrame } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { useGLTF, OrbitControls, Preload } from "@react-three/drei";
 import { Suspense, useRef } from "react";
 import * as THREE from "three";
@@ -37,26 +37,17 @@ const Model = ({ hoveredName }: ModelProps) => {
   });
 
   return (
-    <primitive ref={modelRef} object={scene} scale={0.5} position-y={-1} rotation-x={0.1} />
+    <primitive ref={modelRef} object={scene} scale={0.5} position-y={-1} rotation-x={0.5} />
   );
 };
 
 const Scene = ({ hoveredName }: SceneProps) => {
   return (
-    <Canvas
-      camera={{ position: [0, 0, 5], fov: 45 }}
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        zIndex: -1,
-      }}
-    >
+    <>
       <ambientLight intensity={2.5} />
       <hemisphereLight intensity={2} groundColor="white" />
-      <directionalLight position={[10, 10, 5]} intensity={1.5} />
+      <directionalLight position={[-10, -2, -5]} intensity={1.5} />
+      <directionalLight position={[10, 10, 5]} intensity={1.0} />
       <Suspense fallback={null}>
                 <Model hoveredName={hoveredName} />
         <Preload all />
@@ -65,9 +56,9 @@ const Scene = ({ hoveredName }: SceneProps) => {
         enableZoom={true}
         enablePan={false}
         autoRotate={true}
-        autoRotateSpeed={0.4}
+        autoRotateSpeed={1.5}
       />
-    </Canvas>
+    </>
   );
 };
 

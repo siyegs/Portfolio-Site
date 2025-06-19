@@ -1,10 +1,16 @@
 import { useState, useRef, useEffect } from "react";
+import { Canvas } from "@react-three/fiber";
 import Scene from "../components/Scene";
 import { FiArrowRight } from "react-icons/fi";
 import "../App.css";
 import Header from "../components/Header";
 
-const LandingPage = () => {
+interface LandingPageProps {
+  theme: string;
+  toggleTheme: () => void;
+}
+
+const LandingPage = ({ theme, toggleTheme }: LandingPageProps) => {
   const [hoveredName, setHoveredName] = useState<string | null>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
 
@@ -25,19 +31,31 @@ const LandingPage = () => {
 
   return (
     <>
-      <Header />
+      <Header theme={theme} toggleTheme={toggleTheme} />
       <div
         ref={cursorRef}
         className={`cursor ${hoveredName ? "hovered" : ""}`}
       />
-      <Scene hoveredName={hoveredName} />
+      <Canvas
+        camera={{ position: [0, 0, 5], fov: 45 }}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          zIndex: -1,
+        }}
+      >
+        <Scene hoveredName={hoveredName} />
+      </Canvas>
       <div
         className="main-container px-2"
         style={{ fontFamily: "Special Gothic Expanded One" }}
       >
         <h1
           style={{ fontSize: "clamp(27px, 2vw, 37px)" }}
-          className="leading-[1.3]"
+          className="leading-[1.3] inverse-text"
         >
           <span className="stroked-text text-transparent stroke-slate-100">
             HEY, I'M{" "}
@@ -89,7 +107,7 @@ const LandingPage = () => {
           style={{ fontFamily: "Space Grotesk" }}
         >
           <p
-            className="flex items-center"
+            className="flex items-center dynamic-text"
             style={{
               fontSize: "clamp(16px, 2vw, 19px)",
             }}
@@ -101,17 +119,11 @@ const LandingPage = () => {
             <span className="underline-hover">
               see my{" "}
               <span className="pl-[4px] inline-block scale-x-150">p</span>
-              <span className="scale-x-150">r</span>
-              <span className="scale-x-150">o</span>
-              <span className="scale-x-150">j</span>
-              <span className="scale-x-150">e</span>
-              <span className="scale-x-150">c</span>
-              <span className="scale-x-150">t</span>
-              <span className="scale-x-150">s</span>
+              rojects
             </span>
           </p>
           <p
-            className="flex items-center"
+            className="flex items-center dynamic-text"
             style={{
               fontSize: "clamp(16px, 2vw, 19px)",
             }}
@@ -122,9 +134,8 @@ const LandingPage = () => {
             />
             <span className="underline-hover">
               more
-              <span className="pl-[4px] scale-x-150">a</span>
-              <span className="scale-x-150">b</span>
-              <span className="scale-x-150">o</span>
+              <span className="pl-[4px] inline-block scale-x-150">a</span>
+              <span className="scale-x-150">b</span>o
               <span className="scale-x-150">u</span>
               <span className="scale-x-150">t</span>
               <span className="ml-1">me</span>
