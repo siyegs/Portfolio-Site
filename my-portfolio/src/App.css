@@ -8,7 +8,6 @@
   background-color: white;
   pointer-events: none;
   mix-blend-mode: difference;
-
   transform: translate(-50%, -50%);
   transition: width 0.3s, height 0.3s;
   z-index: 1000;
@@ -19,71 +18,8 @@
   height: 50px;
 }
 
-.main-container {
-  position: relative;
-  z-index: 1;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-}
-
-h1 {
-  font-size: 3rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-p {
-  font-size: 1.25rem;
-  font-weight: 300;
-}
-
-.wavy-container {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 5px;
-}
-
-.wavy-container::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0,5 C25,0 75,10 100,5" stroke="%23aab2d1" fill="none" stroke-width="2"/></svg>');
-  background-repeat: repeat-x;
-  background-size: 20px 4px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  animation: wave-animation 1.5s linear infinite paused;
-}
-
-.wavy-container:hover::after {
-  opacity: 1;
-  animation-play-state: running;
-}
-
-@keyframes wave-animation {
-  0% {
-    background-position-x: 0;
-  }
-  100% {
-    background-position-x: -20px;
-  }
-}
-
 .stroked-text {
-  -webkit-text-stroke: 2px #aab2d1;
-}
-
-.fancy-font {
-  font-family: 'Encode Sans Expanded', sans-serif;
+  -webkit-text-stroke: 0.8px #aab2d1;
 }
 
 .underline-hover {
@@ -111,45 +47,50 @@ p {
   transform-origin: bottom left;
 }
 
+.light .underline-hover::after {
+  background-color: #90754c;
+}
+
 /* --- Theme Styles --- */
 
 body.light {
-  background-color: #ffffff;
+  background-color: #9fb389;
 }
 
-.light .main-container,
-.light header,
-.light .menu-overlay {
-  color: #1a1a1a;
+.light .main-container {
+  color: #e5d2b8;
+}
+
+.light .doings {
+  color: whitesmoke;
+  font-weight: 500;
 }
 
 .light .stroked-text {
-  -webkit-text-stroke-color: #aab2d1;
-
-}
-
-.light .text-#aab2d1 {
-  color: #1a1a1a !important;
+  -webkit-text-stroke-color: whitesmoke;
 }
 
 .light .cursor {
-  background-color: #1a1a1a;
-}
-
-.light .hamburger-btn span {
-  background-color: #1a1a1a;
-}
-
-.light .hamburger-btn::before,
-.light .hamburger-btn::after {
-  background-color: #1a1a1a;
+  background-color: #e5d2b8;
 }
 
 .light .menu-overlay {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: #9f9e9d;
 }
 
-.dynamic-text {
-  color: white;
+.light .menu-overlay p,
+.light .menu-overlay .numbers {
+  color: black;
+}
 
+.light .social-media{
+  color: black;
+}
+
+.light .text-\[\#aab2d1\] {
+  color: #90754c;
+}
+
+.light .dynamic-text {
+  color: whitesmoke;
 }

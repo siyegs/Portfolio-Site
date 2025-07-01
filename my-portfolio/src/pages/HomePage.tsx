@@ -1,89 +1,61 @@
-import { useState, useRef, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
-import Scene from "../components/Scene";
+import { useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import "../App.css";
-import Header from "../components/Header";
+import { useMediaQuery } from "react-responsive";
+import Layout from "../components/Layout";
+import { useNavigate } from "react-router-dom";
 
-interface LandingPageProps {
+interface HomePageProps {
   theme: string;
   toggleTheme: () => void;
 }
 
-const LandingPage = ({ theme, toggleTheme }: LandingPageProps) => {
+const HomePage: React.FC<HomePageProps> = ({ theme, toggleTheme }) => {
+
+  document.title = "ISK | Home"
   const [hoveredName, setHoveredName] = useState<string | null>(null);
-  const cursorRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const moveCursor = (e: MouseEvent) => {
-      if (cursorRef.current) {
-        cursorRef.current.style.left = `${e.clientX}px`;
-        cursorRef.current.style.top = `${e.clientY}px`;
-      }
-    };
-
-    window.addEventListener("mousemove", moveCursor);
-
-    return () => {
-      window.removeEventListener("mousemove", moveCursor);
-    };
-  }, []);
+  const is500andAbove = useMediaQuery({ minWidth: 500 });
+  const navigate = useNavigate();
 
   return (
-    <>
-      <Header theme={theme} toggleTheme={toggleTheme} />
+    <Layout theme={theme} toggleTheme={toggleTheme} hoveredName={hoveredName}>
       <div
-        ref={cursorRef}
-        className={`cursor ${hoveredName ? "hovered" : ""}`}
-      />
-      <Canvas
-        camera={{ position: [0, 0, 5], fov: 45 }}
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-          zIndex: -1,
-        }}
-      >
-        <Scene hoveredName={hoveredName} />
-      </Canvas>
-      <div
-        className="main-container px-2"
+        className="main-container relative z-[1] text-white flex flex-col justify-center items-center h-screen text-center px-2"
         style={{ fontFamily: "Special Gothic Expanded One" }}
       >
         <h1
-          style={{ fontSize: "clamp(27px, 2vw, 37px)" }}
-          className="leading-[1.3] inverse-text"
+          className="leading-[1.3] font-medium mb-[1rem]"
+          style={{ fontSize: "clamp(26px, 4vw, 40px)" }}
         >
           <span className="stroked-text text-transparent stroke-slate-100">
             HEY, I'M{" "}
           </span>{" "}
-          <br />
+          <br className={is500andAbove ? "hidden" : ""} />
           <span
             className="text-[#aab2d1] italic font-black"
             onMouseEnter={() => setHoveredName("IYEGERE")}
             onMouseLeave={() => setHoveredName(null)}
           >
             IY
-            <span className="w-fill inline-block scale-x-150 pr-[3px]">E</span>G
-            <span className="w-fill inline-block scale-x-150 pr-[3px]">E</span>R
-            <span className="w-fill inline-block scale-x-150 pr-[3px]">E</span>
+            <span className="w-fill inline-block scale-x-150 mx-[5px]">E</span>G
+            <span className="w-fill inline-block scale-x-150 mx-[5px]">E</span>R
+            <span className="w-fill inline-block scale-x-150 mx-[5px]">E</span>
           </span>{" "}
-          {/* <br /> */}
           <span
             className="text-[#aab2d1] italic font-black"
             onMouseEnter={() => setHoveredName("SUCCESS")}
             onMouseLeave={() => setHoveredName(null)}
           >
             SUCC
-            <span className="w-fill inline-block scale-x-150 pr-[3px]">E</span>
+            <span className="w-fill inline-block scale-x-150 mx-[5px]">E</span>
             SS
           </span>
           <br />
           <span className="stroked-text text-transparent">
-            BUT YOU CAN CALL <br /> ME{" "}
+            BUT YOU CAN CALL{" "} 
+          <br className={is500andAbove ? "hidden" : ""} />
+            
+             ME{" "}
           </span>
           <span
             className="text-[#aab2d1] italic font-black"
@@ -93,40 +65,45 @@ const LandingPage = ({ theme, toggleTheme }: LandingPageProps) => {
             KARBOLOO
           </span>
         </h1>
+
+        {/* what i do */}
         <p
-          className="px-3"
+          className="px-3 font-light doings"
           style={{
-            fontSize: "clamp(15px, 2vw, 19px)",
+            fontSize: "clamp(15px, 2vw, 20px)",
+            fontFamily: "Space Grotesk",
           }}
         >
-          I'm a frontend web developer, web designer & UX/UI designer
+          I'm a frontend web developer, web <br /> designer & design enthusiast
         </p>
 
         <div
-          className="pt-6 grid gap-y-5"
+          className={`pt-6 flex ${is500andAbove ? "flex-row gap-x-10" : "flex-col"} gap-y-3 w-full justify-center items-center`}
           style={{ fontFamily: "Space Grotesk" }}
         >
           <p
-            className="flex items-center dynamic-text"
+            className={`flex items-center dynamic-text`}
             style={{
-              fontSize: "clamp(16px, 2vw, 19px)",
+              fontSize: "clamp(15px, 2vw, 20px)",
             }}
           >
             <FiArrowRight
               className="mr-2"
               style={{ fontSize: "clamp(17.5px, 2vw, 19px)" }}
             />
-            <span className="underline-hover">
+            <span className={`underline-hover`}>
               see my{" "}
               <span className="pl-[4px] inline-block scale-x-150">p</span>
               rojects
             </span>
           </p>
+
           <p
             className="flex items-center dynamic-text"
             style={{
-              fontSize: "clamp(16px, 2vw, 19px)",
+              fontSize: "clamp(15px, 2vw, 20px)",
             }}
+            onClick={() => navigate("/about")}
           >
             <FiArrowRight
               className="mr-2"
@@ -143,8 +120,8 @@ const LandingPage = ({ theme, toggleTheme }: LandingPageProps) => {
           </p>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 
-export default LandingPage;
+export default HomePage;
