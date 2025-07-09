@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 import "../App.css";
 import { useMediaQuery } from "react-responsive";
@@ -8,25 +8,33 @@ import { useNavigate } from "react-router-dom";
 interface HomePageProps {
   theme: string;
   toggleTheme: () => void;
+  hoveredName: string | null;
+  setHoveredName: (name: string | null) => void;
 }
 
-const HomePage: React.FC<HomePageProps> = ({ theme, toggleTheme }) => {
-
-  document.title = "ISK | Home"
-  const [hoveredName, setHoveredName] = useState<string | null>(null);
+const HomePage: React.FC<HomePageProps> = ({
+  theme,
+  toggleTheme,
+  hoveredName,
+  setHoveredName,
+}) => {
+  document.title = "Home | ISK";
   const is500andAbove = useMediaQuery({ minWidth: 500 });
   const navigate = useNavigate();
 
   return (
     <Layout theme={theme} toggleTheme={toggleTheme} hoveredName={hoveredName}>
       <div
-        className="main-container relative z-[1] text-white flex flex-col justify-center items-center h-screen text-center px-2"
+        className={`main-container relative z-[1] text-white flex flex-col justify-center items-center h-screen text-center px-2
+           ${
+             theme === "dark"
+               ? "bg-[#18181b]/90  text-[#f3f2f9]"
+               : "bg-[#f3f2f9]/85 text-[#18181b]"
+           }`}
         style={{ fontFamily: "Special Gothic Expanded One" }}
       >
         <h1
-          className="leading-[1.3] font-medium mb-[1rem]"
-          style={{ fontSize: "clamp(26px, 4vw, 40px)" }}
-        >
+          className="leading-[1.3] font-medium mb-[1rem] text-[clamp(26px,4.5vw,93px)]">
           <span className="stroked-text text-transparent stroke-slate-100">
             HEY, I'M{" "}
           </span>{" "}
@@ -52,10 +60,8 @@ const HomePage: React.FC<HomePageProps> = ({ theme, toggleTheme }) => {
           </span>
           <br />
           <span className="stroked-text text-transparent">
-            BUT YOU CAN CALL{" "} 
-          <br className={is500andAbove ? "hidden" : ""} />
-            
-             ME{" "}
+            BUT YOU CAN CALL <br className={is500andAbove ? "hidden" : ""} />
+            ME{" "}
           </span>
           <span
             className="text-[#aab2d1] italic font-black"
@@ -78,7 +84,9 @@ const HomePage: React.FC<HomePageProps> = ({ theme, toggleTheme }) => {
         </p>
 
         <div
-          className={`pt-6 flex ${is500andAbove ? "flex-row gap-x-10" : "flex-col"} gap-y-3 w-full justify-center items-center`}
+          className={`pt-6 flex ${
+            is500andAbove ? "flex-row gap-x-10" : "flex-col"
+          } gap-y-3 w-full justify-center items-center`}
           style={{ fontFamily: "Space Grotesk" }}
         >
           <p
@@ -86,6 +94,7 @@ const HomePage: React.FC<HomePageProps> = ({ theme, toggleTheme }) => {
             style={{
               fontSize: "clamp(15px, 2vw, 20px)",
             }}
+            onClick={() => navigate("/projects")}
           >
             <FiArrowRight
               className="mr-2"

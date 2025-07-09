@@ -28,9 +28,9 @@
   display: inline-block;
   padding-bottom: 2px;
 }
-  
+
 .underline-hover::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   transform: scaleX(0);
@@ -57,17 +57,15 @@ body.light {
   background-color: #9fb389;
 }
 
-.light .main-container {
-  color: #e5d2b8;
-}
-
 .light .doings {
-  color: whitesmoke;
+  color: #18181b;
   font-weight: 500;
 }
 
 .light .stroked-text {
-  -webkit-text-stroke-color: whitesmoke;
+  -webkit-text-stroke-color: #18181b;
+  -webkit-text-stroke-width: 0.6px;
+  font-weight: 600;
 }
 
 .light .cursor {
@@ -80,11 +78,11 @@ body.light {
 
 .light .menu-overlay p,
 .light .menu-overlay .numbers {
-  color: black;
+  color: #18181b;
 }
 
-.light .social-media{
-  color: black;
+.light .social-media {
+  color: #18181b;
 }
 
 .light .text-\[\#aab2d1\] {
@@ -92,5 +90,34 @@ body.light {
 }
 
 .light .dynamic-text {
+  color: #18181b;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 21s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-text {
+  transition: color 0.3s;
+  color: #aab2d1;
+}
+
+.marquee-track:hover .marquee-text {
   color: whitesmoke;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
