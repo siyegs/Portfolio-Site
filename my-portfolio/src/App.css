@@ -72,19 +72,6 @@ body.light {
   background-color: #e5d2b8;
 }
 
-.light .menu-overlay {
-  background-color: #9f9e9d;
-}
-
-.light .menu-overlay p,
-.light .menu-overlay .numbers {
-  color: #18181b;
-}
-
-.light .social-media {
-  color: #18181b;
-}
-
 .light .text-\[\#aab2d1\] {
   color: #90754c;
 }
@@ -104,14 +91,6 @@ body.light {
   animation-play-state: paused;
 }
 
-.marquee-text {
-  transition: color 0.3s;
-  color: #aab2d1;
-}
-
-.marquee-track:hover .marquee-text {
-  color: whitesmoke;
-}
 
 @keyframes marquee {
   0% {

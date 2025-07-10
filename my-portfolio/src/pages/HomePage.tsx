@@ -76,7 +76,7 @@ const HomePage: React.FC<HomePageProps> = ({
         <p
           className="px-3 font-light doings"
           style={{
-            fontSize: "clamp(15px, 2vw, 20px)",
+            fontSize: "clamp(15px, 2vw, 25px)",
             fontFamily: "Space Grotesk",
           }}
         >
@@ -92,13 +92,13 @@ const HomePage: React.FC<HomePageProps> = ({
           <p
             className={`flex items-center dynamic-text`}
             style={{
-              fontSize: "clamp(15px, 2vw, 20px)",
+              fontSize: "clamp(15px, 2vw, 24px)",
             }}
             onClick={() => navigate("/projects")}
           >
             <FiArrowRight
               className="mr-2"
-              style={{ fontSize: "clamp(17.5px, 2vw, 19px)" }}
+              style={{ fontSize: "clamp(17.5px, 2vw, 22px)" }}
             />
             <span className={`underline-hover`}>
               see my{" "}
@@ -110,13 +110,13 @@ const HomePage: React.FC<HomePageProps> = ({
           <p
             className="flex items-center dynamic-text"
             style={{
-              fontSize: "clamp(15px, 2vw, 20px)",
+              fontSize: "clamp(15px, 2vw, 24px)",
             }}
             onClick={() => navigate("/about")}
           >
             <FiArrowRight
               className="mr-2"
-              style={{ fontSize: "clamp(17.5px, 2vw, 19px)" }}
+              style={{ fontSize: "clamp(17.5px, 2vw, 22px)" }}
             />
             <span className="underline-hover">
               more

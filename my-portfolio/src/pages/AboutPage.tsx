@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
-
+import myImage from "../assets/myImage.webp";
 import resumePDF from "../assets/IyegereSuccessResume.pdf";
 
 interface AboutPageProps {
@@ -29,7 +29,7 @@ const AboutPage: React.FC<AboutPageProps> = ({
           {/* Image Column */}
           <div className="w-full sm:w-1/2 md:w-1/3 md:order-last mt-[90px] mb-8 md:mt-0 flex items-center">
             <img
-              src="src/assets/WhatsApp Image 2025-06-28 at 09.22.34_0602184e.jpg"
+              src={myImage}
               alt="Iyegere Success"
               className="rounded-lg w-full shadow-lg h-auto object-cover"
             />

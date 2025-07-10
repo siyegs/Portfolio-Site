@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
-import { FiArrowRight, FiExternalLink } from "react-icons/fi";
-import shopCo from "../assets/shopCo.png";
-import asl from "../assets/asl.png";
-import kdc from "../assets/kdc.jpeg";
-import thisportfolio from "../assets/portfolio.png";
+import { FiExternalLink } from "react-icons/fi";
+import shopCo from "../assets/shopCo.webp";
+import asl from "../assets/asl.webp";
+import kdc from "../assets/kdc.webp";
+import thisportfolio from "../assets/portfolio.webp";
+import amazite from "../assets/amazite2.webp";
 
 interface WorkPageProps {
   theme: string;
@@ -37,17 +38,25 @@ const projects = [
     color: "bg-purple-400",
     image: kdc,
   },
+  // {
+  //   title: "Portfolio",
+  //   url: "#",
+  //   category: "Portfolio",
+  //   tags: ["Branding", "Web Dev"],
+  //   color: "bg-blue-400",
+  //   image: thisportfolio,
+  // },
   {
-    title: "Portfolio",
-    url: "#",
-    category: "Portfolio",
-    tags: ["Portfolio", "Web Dev"],
+    title: "Amazite Academy",
+    url: "https://amaziteacademy.com/",
+    category: "Web Dev",
+    tags: ["Web Dev"],
     color: "bg-blue-400",
-    image: thisportfolio,
+    image: amazite,
   },
 ];
 
-const filters = ["All", "Web Dev", "Portfolio"];
+const filters = ["All", "E-commerce", "Education"];
 
 const WorkPage: React.FC<WorkPageProps> = ({
   theme,
@@ -69,7 +78,7 @@ const WorkPage: React.FC<WorkPageProps> = ({
           theme === "dark"
             ? "bg-[#18181b]/90  text-[#f3f2f9]"
             : "bg-[#f3f2f9]/90 text-[#18181b]"
-        }`}
+        } `}
         style={{ fontFamily: "Space Grotesk" }}
       >
         {/* Header */}
@@ -110,7 +119,7 @@ const WorkPage: React.FC<WorkPageProps> = ({
 
         {/* Projects List */}
         <div className="w-full md:w-[90%] mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-9 overflow-x-hidden">
-          {filteredProjects.map((proj, idx) => (
+          {filteredProjects.map((proj) => (
             <div
               key={proj.title}
               className={`flex flex-col items-center  mx-auto transition-all duration-200`}

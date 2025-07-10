@@ -1,8 +1,8 @@
 import React from "react";
 import Layout from "../components/Layout";
-import { FiGithub, FiLinkedin, FiX, FiInstagram } from "react-icons/fi";
-import logoWhite from "../assets/logo-white.png";
-import logoBlack from "../assets/logo-black.png";
+// import { FiGithub, FiLinkedin, FiX, FiInstagram } from "react-icons/fi";
+import logoWhite from "../assets/logo-white.webp";
+import logoBlack from "../assets/logo-black.webp";
 
 interface ContactPageProps {
   theme: string;
@@ -41,7 +41,7 @@ const ContactPage: React.FC<ContactPageProps> = ({
   });
 
   const sayHello = (
-    <h1 className={`marquee-text text-[clamp(3rem,8vw,6rem)] font-extrabold uppercase text-center whitespace-nowrap inline-block pr-[40px] md:pr-[54px] tracking-[-0.04em] leading-[1.1] ${theme === "light" ? "text-[black]/85 hover:text-[#202c5cba]" : "text-[#aab2d1] hover:text-[whitesmoke]"}`}>
+    <h1 className={`marquee-text text-[clamp(3rem,8vw,6rem)] font-extrabold uppercase text-center whitespace-nowrap inline-block pr-[40px] md:pr-[54px] tracking-[-0.04em] leading-[1.1] ${theme === "light" ? "text-[#18181b]/80 hover:text-[#90754c]" : "text-[#aab2d1] hover:text-[whitesmoke]"}`}>
       SAY HELLO – WANNA BE STARTING SOMETHING? {" "}
       SAY HELLO – WANNA BE STARTING SOMETHING?
     </h1>

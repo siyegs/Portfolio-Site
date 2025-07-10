@@ -1,8 +1,8 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FiSun, FiMoon, FiArrowUpRight } from "react-icons/fi";
-import logoWhite from "../assets/logo-white.png";
-import logoBlack from "../assets/logo-black.png";
+import logoWhite from "../assets/logo-white.webp";
+import logoBlack from "../assets/logo-black.webp";
 
 import { useMediaQuery } from "react-responsive";
 
@@ -81,13 +81,13 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
     },
   ];
 
-  const headerItemsNavigation = (path: string) => {
-    if (path === location.pathname) return;
-    navigate(path);
-    if (is768andBelow) {
-      setIsMenuOpen(false);
-    }
-  };
+  // const headerItemsNavigation = (path: string) => {
+  //   if (path === location.pathname) return;
+  //   navigate(path);
+  //   if (is768andBelow) {
+  //     setIsMenuOpen(false);
+  //   }
+  // };
 
   const handleMenuNavigation = (path: string) => {
     if (path === location.pathname) return;
@@ -111,14 +111,14 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
             : "-translate-y-full top-[-20px] md:bottom-0 "
         } ${
           location.pathname === "/about" && is768andBelow
-            ? "top-[0px] bg-inherit rounded-b-sm backdrop-blur-[3px]"
+            ? "top-[0px] bg-inherit rounded-b-sm"
             : ""
         } ${isMenuOpen ? " bg-inherit top-[20px]" : ""} ${
           pathsExceptHome ? "lg:top-6" : ""
         }`}
       >
         <div
-          className={`flex items-center justify-between px-8 py-4 w-[96%] md:w-[85%] mx-auto ${
+          className={`flex items-center justify-between px-8 py-4 w-[97%] md:w-[85%] mx-auto ${
             location.pathname !== "/"
               ? theme === "dark"
                 ? "bg-[#18181b] rounded-full"
@@ -128,7 +128,7 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
             location.pathname !== "/"
               ? isMenuOpen
                 ? theme === "dark"
-                  ? "bg-black"
+                  ? "bg-[#18181b]"
                   : "bg-[#9f9e9d]"
                 : ""
               : ""
@@ -209,7 +209,7 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
 
             {/* Hamburger - Mobile */}
             <button
-              className="relative z-10 h-8 w-8 flex flex-col items-center justify-center gap-1.5"
+              className="relative z-10 h-8 w-8 flex flex-col items-center justify-center gap-[5px]"
               aria-label="Open menu"
               onClick={toggleMenu}
             >
@@ -217,7 +217,7 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
                 className={`${
                   theme === "light" ? "bg-black" : "bg-white"
                 } ${hamburgerSpanStyle} ${
-                  isMenuOpen ? "rotate-45 translate-y-2" : ""
+                  isMenuOpen ? "rotate-45 translate-y-[5px]" : ""
                 }`}
               />
               <span
@@ -238,10 +238,10 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
       </header>
 
       {isMenuOpen ? (
-        <div className="menu-overlay fixed inset-0 bg-black bg-opacity-95 z-[99] flex flex-col items-center justify-center text-white backdrop-blur-sm">
+        <div className={`menu-overlay fixed inset-0 bg-opacity-95 z-[99] flex flex-col items-center justify-center backdrop-blur-md ${theme === "light" ? "bg-[whitesmoke] text-[#18181b]" : "bg-[#18181b] text-[whitesmoke]"}`}>
           <nav
             className="flex flex-col leading-none font-bold text-left md:text-center"
-            style={{ fontSize: "clamp(41px, 2vw, 56px)" }}
+            style={{ fontSize: "clamp(41px, 8vw, 60px)" }}
           >
             <p
               onClick={() => handleMenuNavigation("/")}
