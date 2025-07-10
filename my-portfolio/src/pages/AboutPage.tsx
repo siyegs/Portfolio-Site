@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
-import myImage from "../assets/myImage.webp";
+import myImageMobile from "../assets/aboutImgMobile.jpg";
+import myImageDesktop from "../assets/aboutImgDesktop.jpg";
 import resumePDF from "../assets/IyegereSuccessResume.pdf";
 
 interface AboutPageProps {
@@ -29,9 +30,14 @@ const AboutPage: React.FC<AboutPageProps> = ({
           {/* Image Column */}
           <div className="w-full sm:w-1/2 md:w-1/3 md:order-last mt-[90px] mb-8 md:mt-0 flex items-center">
             <img
-              src={myImage}
+              src={myImageMobile}
               alt="Iyegere Success"
-              className="rounded-lg w-full shadow-lg h-auto object-cover"
+              className="md:hidden rounded-lg w-full shadow-lg h-auto object-cover"
+            />
+            <img
+              src={myImageDesktop}
+              alt="Iyegere Success"
+              className="max-md:hidden rounded-lg w-full shadow-lg h-auto object-cover"
             />
           </div>
 

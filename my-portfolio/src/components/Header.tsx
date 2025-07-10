@@ -108,7 +108,7 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
         className={`fixed left-0 top-[25px] lg:top-7 w-full z-[100] text-white transition-transform duration-300 ${
           showHeader
             ? "translate-y-0"
-            : "-translate-y-full top-[-20px] md:bottom-0 "
+            : "-translate-y-full top-[-50px] md:bottom-0 "
         } ${
           location.pathname === "/about" && is768andBelow
             ? "top-[0px] bg-inherit rounded-b-sm"
