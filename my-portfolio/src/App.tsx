@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import ProjectDetailsPage from "./pages/projectDetails";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -72,6 +73,16 @@ function App() {
             path="/contact"
             element={
               <ContactPage
+                theme={theme}
+                toggleTheme={toggleTheme}
+                hoveredName={hoveredName}
+              />
+            }
+          />
+          <Route
+            path="/projects/:slugTextId"
+            element={
+              <ProjectDetailsPage
                 theme={theme}
                 toggleTheme={toggleTheme}
                 hoveredName={hoveredName}

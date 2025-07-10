@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
+import { useNavigate } from "react-router-dom";
 import { FiExternalLink } from "react-icons/fi";
-import shopCo from "../assets/shopCo.webp";
-import asl from "../assets/asl.webp";
-import kdc from "../assets/kdc.webp";
-import amazite from "../assets/amazite.webp";
-// import logoWhite from "../assets/logo-white.webp";
-// import logoBlack from "../assets/logo-black.webp";
+import projectsData from "../data/projectsData";
 
 interface WorkPageProps {
   theme: string;
@@ -14,55 +10,7 @@ interface WorkPageProps {
   hoveredName: string | null;
 }
 
-const projects = [
-  {
-    title: "Shop Co",
-    url: "https://shop.fluxdevs.com/",
-    category: "Web Dev",
-    tags: ["E-commerce"],
-    color: "bg-[#aab2d1]",
-    image: shopCo,
-    ongoing: false,
-  },
-  {
-    title: "ASL Originals",
-    url: "https://asluxuryoriginals.com/",
-    category: "Web Dev",
-    tags: ["E-commerce"],
-    color: "bg-pink-300",
-    image: asl,
-    ongoing: false,
-  },
-  {
-    title: "Kids Design Company",
-    url: "https://kidsdesigncompany.com/",
-    category: "Web Dev",
-    tags: ["E-commerce"],
-    color: "bg-purple-400",
-    image: kdc,
-    ongoing: false,
-  },
-  // {
-  //   title: "Portfolio",
-  //   url: "#",
-  //   category: "Portfolio",
-  //   tags: ["Branding", "Web Dev"],
-  //   color: "bg-blue-400",
-  //   image: thisportfolio,
-  //   ongoing: false,
-  // },
-  {
-    title: "Amazite Academy",
-    url: "https://amaziteacademy.com/",
-    category: "Web Dev",
-    tags: ["Education"],
-    color: "bg-blue-400",
-    image: amazite,
-    ongoing: true,
-  },
-];
-
-const filters = ["All", "E-commerce", "Education"];
+const filters = ["All", ...new Set(projectsData.flatMap((proj) => proj.tags))];
 
 const WorkPage: React.FC<WorkPageProps> = ({
   theme,
@@ -74,8 +22,10 @@ const WorkPage: React.FC<WorkPageProps> = ({
 
   const filteredProjects =
     activeFilter === "All"
-      ? projects
-      : projects.filter((proj) => proj.tags.includes(activeFilter));
+      ? projectsData
+      : projectsData.filter((proj) => proj.tags.includes(activeFilter));
+
+  const navigate = useNavigate();
 
   return (
     <Layout theme={theme} toggleTheme={toggleTheme} hoveredName={hoveredName}>
@@ -138,7 +88,8 @@ const WorkPage: React.FC<WorkPageProps> = ({
                   <img
                     src={proj.image}
                     alt={proj.title + " " + "img"}
-                    className="object-contain w-full h-full"
+                    className="object-contain w-full h-full cursor-pointer"
+                    onClick={() => navigate(`/projects/${proj.slug}`)}
                   />
                 ) : (
                   <span>{proj.title[0]}</span>
@@ -203,8 +154,6 @@ const WorkPage: React.FC<WorkPageProps> = ({
               >
                 Ready to go live with your dream?
               </h2>
-              
-
             </div>
 
             <div>

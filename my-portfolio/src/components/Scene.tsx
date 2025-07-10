@@ -14,11 +14,11 @@ interface ModelProps {
 }
 
 const Model = ({ hoveredName, theme }: ModelProps) => {
-  const { scene } = useGLTF("./shiftingsU.glb");
-    const modelRef = useRef<THREE.Group>(null!)
+  const { scene } = useGLTF("/shiftingsU.glb");
+  const modelRef = useRef<THREE.Group>(null!);
 
   useEffect(() => {
-    const color = theme === 'light' ? '#e5d2b8' : '#ffffff';
+    const color = theme === "light" ? "#e5d2b8" : "#ffffff";
     // const color = theme === 'light' ? '#b3b792' : '#ffffff';
 
     scene.traverse((child) => {
