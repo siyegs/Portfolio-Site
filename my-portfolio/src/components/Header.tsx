@@ -144,19 +144,7 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
               setIsMenuOpen(false);
             }}
           >
-            {theme === "dark" ? (
-              <img
-                src={logoWhite}
-                alt="logo-white"
-                className="object-contain h-6 md:h-7 w-auto"
-              />
-            ) : (
-              <img
-                src={logoBlack}
-                alt="logo-black"
-                className="object-contain h-6 md:h-7 w-auto"
-              />
-            )}
+            <img src={theme === "dark" ? logoWhite : logoBlack} alt="logo" className="object-contain h-6 md:h-7 w-auto" />
 
             <p
               className={`cursor-pointer font-bold tracking-wide max-md:hidden`}
@@ -241,7 +229,7 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
         <div className={`menu-overlay fixed inset-0 bg-opacity-95 z-[99] flex flex-col items-center justify-center backdrop-blur-md ${theme === "light" ? "bg-[whitesmoke] text-[#18181b]" : "bg-[#18181b] text-[whitesmoke]"}`}>
           <nav
             className="flex flex-col leading-none font-bold text-left md:text-center"
-            style={{ fontSize: "clamp(41px, 8vw, 60px)" }}
+            style={{ fontSize: "clamp(41px, 8vw, 54px)" }}
           >
             <p
               onClick={() => handleMenuNavigation("/")}

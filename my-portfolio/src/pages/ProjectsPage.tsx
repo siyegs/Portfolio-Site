@@ -4,8 +4,9 @@ import { FiExternalLink } from "react-icons/fi";
 import shopCo from "../assets/shopCo.webp";
 import asl from "../assets/asl.webp";
 import kdc from "../assets/kdc.webp";
-import thisportfolio from "../assets/portfolio.webp";
-import amazite from "../assets/amazite2.webp";
+import amazite from "../assets/amazite.webp";
+// import logoWhite from "../assets/logo-white.webp";
+// import logoBlack from "../assets/logo-black.webp";
 
 interface WorkPageProps {
   theme: string;
@@ -18,25 +19,28 @@ const projects = [
     title: "Shop Co",
     url: "https://shop.fluxdevs.com/",
     category: "Web Dev",
-    tags: ["Web Dev"],
+    tags: ["E-commerce"],
     color: "bg-[#aab2d1]",
     image: shopCo,
+    ongoing: false,
   },
   {
     title: "ASL Originals",
     url: "https://asluxuryoriginals.com/",
     category: "Web Dev",
-    tags: ["Web Dev"],
+    tags: ["E-commerce"],
     color: "bg-pink-300",
     image: asl,
+    ongoing: false,
   },
   {
     title: "Kids Design Company",
     url: "https://kidsdesigncompany.com/",
     category: "Web Dev",
-    tags: ["Web Dev"],
+    tags: ["E-commerce"],
     color: "bg-purple-400",
     image: kdc,
+    ongoing: false,
   },
   // {
   //   title: "Portfolio",
@@ -45,14 +49,16 @@ const projects = [
   //   tags: ["Branding", "Web Dev"],
   //   color: "bg-blue-400",
   //   image: thisportfolio,
+  //   ongoing: false,
   // },
   {
     title: "Amazite Academy",
     url: "https://amaziteacademy.com/",
     category: "Web Dev",
-    tags: ["Web Dev"],
+    tags: ["Education"],
     color: "bg-blue-400",
     image: amazite,
+    ongoing: true,
   },
 ];
 
@@ -126,7 +132,7 @@ const WorkPage: React.FC<WorkPageProps> = ({
             >
               {/* Placeholder Thumbnail*/}
               <div
-                className={`flex items-center justify-center mb-4 p-6 rounded-lg ${proj.color} sm:h-[200px] sm:w-[280px] md:h-[240px] md:w-[320px] lg:w-[290px] xl:w-[350px] 2xl:w-[430px] hover:scale-95 transition-all duration-200`}
+                className={`relative flex items-center justify-center mb-4 p-6 rounded-lg ${proj.color} sm:h-[200px] sm:w-[280px] md:h-[240px] md:w-[320px] lg:w-[290px] xl:w-[350px] 2xl:w-[430px] hover:scale-95 transition-all duration-200`}
               >
                 {proj.image ? (
                   <img
@@ -137,6 +143,15 @@ const WorkPage: React.FC<WorkPageProps> = ({
                 ) : (
                   <span>{proj.title[0]}</span>
                 )}
+
+                <div className="absolute top-3 left-4">
+                  {proj.ongoing && (
+                    <span className="bg-[black]/70 text-white text-xs font-semibold px-2 py-1 rounded">
+                      <span className="inline-block rounded-full bg-green-600 w-2 h-2 mr-1 align-middle animate-pulse"></span>
+                      Ongoing
+                    </span>
+                  )}
+                </div>
               </div>
 
               {/* Project Info - centered below image */}
@@ -181,12 +196,16 @@ const WorkPage: React.FC<WorkPageProps> = ({
           }`}
         >
           <div className="grid md:grid-cols-2 md:gap-4 w-[85%] mx-auto">
-            <h2
-              className="font-bold mb-3 md:font-black"
-              style={{ fontSize: "clamp(20px, 3vw, 100px)" }}
-            >
-              Ready to go live with your dream?
-            </h2>
+            <div className="flex justify-center items-center">
+              <h2
+                className="font-bold mb-3 md:font-black"
+                style={{ fontSize: "clamp(20px, 3vw, 100px)" }}
+              >
+                Ready to go live with your dream?
+              </h2>
+              
+
+            </div>
 
             <div>
               <p
@@ -197,7 +216,7 @@ const WorkPage: React.FC<WorkPageProps> = ({
                 to collaborate and help you make the most of your web presence.
               </p>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:iyegeresuccess@gmail.com"
                 className="inline-block px-4 py-2 font-semibold text-sm transition-all duration-200 shadow-md bg-[#aab2d1] text-[#18181b] hover:bg-[whitesmoke] hover:text-[#18181b]"
               >
                 Collab with ISK

@@ -35,11 +35,6 @@ const ContactPage: React.FC<ContactPageProps> = ({
 }) => {
   document.title = "Contact | ISK";
 
-  const time = new Date().toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
   const sayHello = (
     <h1 className={`marquee-text text-[clamp(3rem,8vw,6rem)] font-extrabold uppercase text-center whitespace-nowrap inline-block pr-[40px] md:pr-[54px] tracking-[-0.04em] leading-[1.1] ${theme === "light" ? "text-[#18181b]/80 hover:text-[#90754c]" : "text-[#aab2d1] hover:text-[whitesmoke]"}`}>
       SAY HELLO – WANNA BE STARTING SOMETHING? {" "}
@@ -112,24 +107,9 @@ const ContactPage: React.FC<ContactPageProps> = ({
         </div>
 
         {/* Footer: Location/Time and Credit */}
-        <div className="w-full flex justify-between items-center text-xs md:text-sm font-medium mt-12">
-          <div className="pl-1">
-            NIGERIA <span className="ml-2">{time}</span>
-          </div>
+        <div className="w-full flex justify-center items-center text-xs md:text-sm font-medium mt-12">
           <div className="pr-1">
-            {theme === "dark" ? (
-              <img
-                src={logoWhite}
-                alt="logo-white"
-                className="object-contain h-5 md:h-7 w-auto"
-              />
-            ) : (
-              <img
-                src={logoBlack}
-                alt="logo-black"
-                className="object-contain h-5 md:h-7 w-auto"
-              />
-            )}
+            © {new Date().getFullYear()} ISK. All rights reserved.
           </div>
         </div>
       </div>
