@@ -1,8 +1,8 @@
 import React from "react";
 import Layout from "../components/Layout";
 // import { FiGithub, FiLinkedin, FiX, FiInstagram } from "react-icons/fi";
-import logoWhite from "../assets/logo-white.webp";
-import logoBlack from "../assets/logo-black.webp";
+// import logoWhite from "../assets/logo-white.webp";
+// import logoBlack from "../assets/logo-black.webp";
 
 interface ContactPageProps {
   theme: string;

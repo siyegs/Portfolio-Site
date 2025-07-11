@@ -68,7 +68,7 @@ const HomePage: React.FC<HomePageProps> = ({
             onMouseEnter={() => setHoveredName("KARBOLOO")}
             onMouseLeave={() => setHoveredName(null)}
           >
-            KARBOLOO
+            KABORLOO
           </span>
         </h1>
 
