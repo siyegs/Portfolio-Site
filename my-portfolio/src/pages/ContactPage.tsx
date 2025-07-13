@@ -13,7 +13,7 @@ interface ContactPageProps {
 const SOCIALS = [
   {
     label: "TWITTER",
-    url: "https://x.com/iyegere_success",
+    url: "https://x.com/IyegereS",
     // icon: <FiX className="inline-block mr-2" />,
   },
   {
@@ -23,7 +23,7 @@ const SOCIALS = [
   },
   {
     label: "LINKEDIN",
-    url: "https://linkedin.com/in/iyegere-success-1b1b1b1",
+    url: "https://linkedin.com/in/success-iyegere-063457250",
     // icon: <FiLinkedin className="inline-block mr-2" />,
   },
 ];
