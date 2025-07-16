@@ -279,7 +279,7 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
           </nav>
           <div className="social-media flex mt-8 text-lg">
             <a
-              href="https://www.linkedin.com/in/iyegere-success-1b1b1b1/"
+              href="https://www.linkedin.com/in/success-iyegere-063457250"
               className="flex items-center mx-4"
             >
               <FiArrowUpRight className="mr-2" /> linkedin
@@ -291,7 +291,7 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
               <FiArrowUpRight className="mr-2" /> github
             </a>
             <a
-              href="https://x.com/iyegere_success"
+              href="https://x.com/IyegereS"
               className="flex items-center mx-4"
             >
               <FiArrowUpRight className="mr-2" /> x
