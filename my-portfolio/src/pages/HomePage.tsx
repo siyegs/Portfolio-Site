@@ -28,7 +28,7 @@ const HomePage: React.FC<HomePageProps> = ({
         className={`main-container relative z-[1] text-white flex flex-col justify-center items-center h-screen text-center px-2
            ${
              theme === "dark"
-               ? "bg-[red]/90  text-[#f3f2f9]"
+               ? "bg-[#18181b]/90  text-[#f3f2f9]"
                : "bg-[#f3f2f9]/85 text-[#18181b]"
            }`}
         style={{ fontFamily: "Special Gothic Expanded One" }}
