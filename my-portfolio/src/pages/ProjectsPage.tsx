@@ -103,6 +103,15 @@ const WorkPage: React.FC<WorkPageProps> = ({
                     </span>
                   )}
                 </div>
+                
+                <div className="absolute top-3 left-4">
+                  {proj.underMaintenance && (
+                    <span className="bg-[black]/70 text-white text-xs font-semibold px-2 py-1 rounded">
+                      <span className="inline-block rounded-full bg-red-600 w-2 h-2 mr-1 align-middle animate-pulse"></span>
+                      Under Maintenance
+                    </span>
+                  )}
+                </div>
               </div>
 
               {/* Project Info - centered below image */}
