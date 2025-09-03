@@ -2,23 +2,37 @@ import shopCo from "../assets/shopCo.webp";
 import asl from "../assets/asl.webp";
 import kdc from "../assets/kdc.webp";
 import amazite from "../assets/amazite.webp";
-import chatApp from "../assets/c0587e90-36c2-4f4b-8bf0-510558217e38.png"
+import chatApp from "../assets/chatAppTablet.png";
+
+//kdcERP
+import kdcERP from "../assets/kdcERP/kdcERP.png";
+import kdcERP1 from "../assets/kdcERP/Screenshot_3-8-2025_14529_factory.kidsdesigncompany.com.jpeg";
+import kdcERP2 from "../assets/kdcERP/kdcERPLaptopWOFrame.jpeg";
+import kdcERP3 from "../assets/kdcERP/kdc3.jpeg";
 
 const projectsData = [
   {
-    title: "Kids Design Company",
-    slug: "kids-design-company",
-    url: "https://kidsdesigncompany.com/",
+    title: "Business ERP",
+    slug: "kids-design-company-erp",
+    url: "http://factory.kidsdesigncompany.com/",
     category: "Web Dev",
-    tags: ["E-commerce"],
-    color: "bg-red-300",
-
-    image: kdc,
+    tags: ["ERP"],
+    color: "bg-blue-500",
+    image: kdcERP,
     ongoing: false,
-    description: `A responsive e-commerce web application for children's furniture and kids' essentials. It features secure authentication using JWT and Google OAuth, dynamic product listings from a RESTful API, and full e-commerce functionality including a shopping cart and wishlist. Online payments are processed through Flutterwave and Paystack, offering secure and flexible checkout options. 
-    An admin dashboard allows authorized users to add, update, and delete products, managing the store's inventory directly from the platform. The complete application, including the admin panel, is available for demonstration upon request.`,
+    description: `The ERP provides end-to-end tracking of company activities, including profit and loss calculations, employee and inventory records, delivering actionable insights for informed decision-making. Implemented Role-Based Access Control (RBAC) to enforce secure, granular access management, safeguarding sensitive data and tailoring permissions to user roles. Key functionalities include real-time inventory management, financial analytics, and employee administration, creating a unified platform for streamlined business processes.`,
     tools: ["React", "Tailwind CSS", "TypeScript"],
     underMaintenance: false,
+    isDemo: false,
+    slideshowImages: [kdcERP1, kdcERP3, kdcERP2],
+    hasRBAC: true,
+    demoRolesURL: [
+      { role: "CEO", url: "https://erp.fluxdevs.com/ceo/dashboard" },
+      { role: "Factory Manager", url: "https://erp.fluxdevs.com/factory-manager/dashboard" },
+      { role: "Project Manager", url: "https://erp.fluxdevs.com/project-manager/dashboard" },
+      { role: "Store Keeper", url: "https://erp.fluxdevs.com/store-keeper/dashboard" },
+      { role: "Admin", url: "https://erp.fluxdevs.com/admin/dashboard" },
+    ],
   },
   {
     title: "ASL Originals",
@@ -30,9 +44,25 @@ const projectsData = [
     image: asl,
     ongoing: false,
     description:
-    "A fully responsive e-commerce application engineered with React and Tailwind CSS, featuring secure JWT-based authentication, dynamic product data consumption from a RESTful API, and robust state management for cart and wishlist functionalities. Implements efficient API communication, protected routes, and modular component architecture to ensure scalability and maintainability across different devices.",
+      "Fully responsive e-commerce application, featuring secure JWT-based authentication, dynamic product data consumption from a RESTful API, and robust state management for cart and wishlist functionalities. Implements efficient API communication, protected routes, and modular component architecture to ensure scalability and maintainability across different devices. Hey! You are here. Why don't you shop for something special?",
     tools: ["React", "Tailwind CSS", "TypeScript"],
     underMaintenance: false,
+    isDemo: false,
+  },
+  {
+    title: "Kids Design Company",
+    slug: "kids-design-company",
+    url: "https://kidsdesigncompany.com/",
+    category: "Web Dev",
+    tags: ["E-commerce"],
+    color: "bg-red-300",
+    image: kdc,
+    ongoing: false,
+    description: `Your kid will love it here, so would you! This features secure authentication using JWT and Google OAuth, dynamic product listings, and full e-commerce functionality including a shopping cart and wishlist. Online payments are processed through Flutterwave and Paystack, offering secure and flexible checkout options. 
+    An admin dashboard allows authorized users to add, update, and delete products, managing the store's inventory directly from the platform. The admin panel, is available for demonstration upon request.`,
+    tools: ["React", "Tailwind CSS", "TypeScript"],
+    underMaintenance: false,
+    isDemo: false,
   },
   {
     title: "ISK Chat",
@@ -41,12 +71,12 @@ const projectsData = [
     category: "Web Dev",
     tags: ["Chat App"],
     color: "bg-purple-400",
-
     image: chatApp,
     ongoing: false,
-    description: `A modern, real-time chat application built with React, Tailwind CSS, and powered by a serverless Firebase backend. Features secure, persistent user authentication, real-time messaging, and a sophisticated, permission-based chat access system with requests, accept/revoke, and grant-back capabilities. The application includes multimedia support and real-time notifications. Leveraging Firestore for live data synchronization, the fully responsive interface provides a seamless and intuitive user experience across all devices.`,
+    description: `Modern, real-time chat application powered by a serverless backend. Features secure, persistent user authentication, real-time messaging, and a sophisticated, permission-based chat access system with requests, accept/revoke, and grant-back capabilities. The application includes multimedia support and real-time notifications. Leveraging Firestore for live data synchronization, the fully responsive interface provides a seamless and intuitive user experience across all devices.`,
     tools: ["React", "Tailwind CSS", "Firebase"],
     underMaintenance: false,
+    isDemo: false,
   },
   {
     title: "Shop Co",
@@ -58,9 +88,10 @@ const projectsData = [
     image: shopCo,
     ongoing: false,
     description:
-    "A modern e-commerce platform built with React and Tailwind CSS. Features secure JWT and Google OAuth authentication, dynamic product listings, shopping cart, wishlist, and online payment through Flutterwave and Paystack. REST API integration and responsive UI provide a seamless user experience.",
+      "A modern e-commerce platform built with React and Tailwind CSS. Features secure JWT and Google OAuth authentication, dynamic product listings, shopping cart, wishlist, and online payment through Flutterwave and Paystack. REST API integration and responsive UI provide a seamless user experience.",
     tools: ["React", "Tailwind CSS", "TypeScript"],
-    underMaintenance: true,
+    underMaintenance: false,
+    isDemo: false,
   },
   {
     title: "Amazite Academy",
@@ -72,9 +103,10 @@ const projectsData = [
     image: amazite,
     ongoing: true,
     description:
-    "A responsive web application for students seeking educational programs and guidance. Developed with React.js and styled with Tailwind CSS, the platform features dynamic course listings, an intuitive navigation flow, and mobile-friendly design to improve user engagement.",
+      "A responsive web application for students seeking educational programs and guidance. Developed with React.js and styled with Tailwind CSS, the platform features dynamic course listings, an intuitive navigation flow, and mobile-friendly design to improve user engagement.",
     tools: ["React", "Tailwind CSS"],
     underMaintenance: false,
+    isDemo: false,
   },
 ];
 

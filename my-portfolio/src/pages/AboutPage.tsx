@@ -1,8 +1,8 @@
 import React from "react";
 import Layout from "../components/Layout";
-import myImageMobile from "../assets/aboutImgMobile.jpg";
-import myImageDesktop from "../assets/aboutImgDesktop.jpg";
-import resumePDF from "../assets/IyegereSuccessResume.pdf";
+import myImageMobile from "../assets/about/aboutImgMobile.jpg";
+import myImageDesktop from "../assets/about/aboutImgDesktop.jpg";
+import resumePDF from "../assets/about/IyegereSuccessResume.pdf";
 
 interface AboutPageProps {
   theme: string;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import { useNavigate } from "react-router-dom";
-import { FiExternalLink } from "react-icons/fi";
 import projectsData from "../data/projectsData";
 
 interface WorkPageProps {
@@ -53,7 +52,7 @@ const WorkPage: React.FC<WorkPageProps> = ({
             Click the filters below to check out my different projects:
           </p>
           <div className="flex gap-2 mb-2 flex-wrap">
-            {filters.map((filter) => (
+            {filters.sort((a, b) => a.localeCompare(b)).map((filter) => (
               <button
                 key={filter}
                 className={`px-3 py-1 rounded-full border text-sm font-medium transition-all duration-200 focus:outline-none ${
@@ -116,16 +115,13 @@ const WorkPage: React.FC<WorkPageProps> = ({
 
               {/* Project Info - centered below image */}
               <div className="px-[3px] md:px-0 w-full flex flex-col mb-10">
-                <a
-                  href={proj.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`font-semibold flex items-center gap-1 hover:underline mb-1 text-center hover:transition-all hover:duration-500 hover:ease-in-out w-fit`}
+                <p
+                  className={`font-semibold flex items-center gap-1 cursor-pointer mb-1 text-center hover:transition-all hover:duration-500 hover:ease-in-out w-fit`}
                   style={{ fontSize: "clamp(19px, 2vw, 34px" }}
+                  onClick={() => navigate(`/projects/${proj.slug}`)}
                 >
                   {proj.title}
-                  <FiExternalLink className="text-base" />
-                </a>
+                </p>
 
                 {/* tag */}
                 <div className="flex gap-2 mt-1 flex-wrap">

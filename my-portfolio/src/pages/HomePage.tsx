@@ -80,7 +80,7 @@ const HomePage: React.FC<HomePageProps> = ({
             fontFamily: "Space Grotesk",
           }}
         >
-          I'm a frontend web developer, web <br /> designer & design enthusiast
+          I'm an App and Frontend Web Developer, web <br /> designer & design enthusiast
         </p>
 
         <div
